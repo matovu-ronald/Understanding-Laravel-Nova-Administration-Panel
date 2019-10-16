@@ -4,6 +4,9 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -44,9 +47,27 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Title'),
+            BelongsTo::make('Category')
+                ->sortable(),
 
-            Trix::make('Body')
+            Text::make('Title')
+                ->sortable(),
+
+            Trix::make('Body'),
+
+            DateTime::make('Publish At')
+                ->hideFromIndex(),
+
+            DateTime::make('Publish Until')
+                ->hideFromIndex(),
+
+            Boolean::make('Is Published')
+                ->sortable(),
+
+            BelongsTo::make('User')
+                ->sortable()
+                ->searchable()
+
         ];
     }
 
