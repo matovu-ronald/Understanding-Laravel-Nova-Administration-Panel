@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+
 
         /*
          * Application Service Providers...
