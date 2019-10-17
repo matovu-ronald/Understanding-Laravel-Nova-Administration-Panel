@@ -21,12 +21,23 @@ class Post extends Resource
      */
     public static $model = 'App\Post';
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'title';
+    public static $globallySearchable = true;
+
+    // /**
+    //  * The single value that should be used to represent the resource when being displayed.
+    //  *
+    //  * @var string
+    //  */
+    // public static $title = 'title';
+    public function title()
+    {
+        return $this->title. ' - ' . $this->category->name;
+    }
+
+    public function subtitle()
+    {
+        return 'Author: '. $this->user->name;
+    }
 
     /**
      * Build an "index" query for the given resource.
