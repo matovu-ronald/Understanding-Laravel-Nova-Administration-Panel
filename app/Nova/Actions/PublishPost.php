@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
-class PublishPost extends Action
+class PublishPost extends Action implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
@@ -28,7 +28,7 @@ class PublishPost extends Action
                 'is_published' => true
             ]);
         }
-
+        sleep(5);
         return Action::message("Post was publshed successfully.");
     }
 
