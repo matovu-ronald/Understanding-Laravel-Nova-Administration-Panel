@@ -164,6 +164,10 @@ class Post extends Resource
                 ->confirmText('Are sure you want to publish this post?')
                 ->confirmButtonText('Yes, Publish Post')
                 ->cancelButtonText('No, Don\'t Publish Post')
+                ->canSee(function($request) {
+                    // return $request->user()->id == 1;
+                    return true;
+                })
         ];
     }
 }
