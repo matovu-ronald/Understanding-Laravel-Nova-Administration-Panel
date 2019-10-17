@@ -14,6 +14,8 @@ class Post extends Model
         'publish_until' => 'datetime',
     ];
 
+    protected $fillable = ['is_published'];
+
     public function category ()
     {
         return $this->belongsTo('App\Category');

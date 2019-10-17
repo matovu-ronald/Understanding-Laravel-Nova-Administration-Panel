@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\PublishPost;
 use App\Nova\Filters\PostCategories;
 use App\Nova\Filters\PostPublished;
 use App\Nova\Lenses\MostTags;
@@ -157,6 +158,12 @@ class Post extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new PublishPost)
+                ->showOnTableRow()
+                ->confirmText('Are sure you want to publish this post?')
+                ->confirmButtonText('Yes, Publish Post')
+                ->cancelButtonText('No, Don\'t Publish Post')
+        ];
     }
 }
