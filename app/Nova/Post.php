@@ -29,6 +29,19 @@ class Post extends Resource
     public static $title = 'title';
 
     /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        // Show posts that belong only to the logged in user
+        return $query->where('user_id', $request->user()->id);
+    }
+
+    /**
      * The columns that should be searched.
      *
      * @var array
@@ -52,18 +65,28 @@ class Post extends Resource
                 ->sortable(),
 
             Text::make('Title')
-                ->sortable(),
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->creationRules('unique:posts,title')
+                ->updateRules('unique:posts,title,{{resourceId}}'),
 
-            Trix::make('Body'),
+            Trix::make('Body')
+                ->nullable(),
 
             DateTime::make('Publish At')
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->rules('after_or_equal:today'),
 
             DateTime::make('Publish Until')
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->rules('after_or_equal:published_at'),
 
             Boolean::make('Is Published')
-                ->sortable(),
+                ->sortable()
+                ->canSee(function($request) {
+                    // return $request->user()->can('publish_post', $this);
+                    return true;
+                }),
 
             BelongsTo::make('User')
                 ->sortable()

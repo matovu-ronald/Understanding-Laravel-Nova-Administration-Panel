@@ -46,8 +46,9 @@ class Tag extends Resource
 
             Text::make('Tag')
                 ->sortable()
-                ->creationRules('required', 'max:255', 'unique:tags,tag')
-                ->updateRules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->creationRules('unique:tags,tag')
+                ->updateRules('unique:tags,tag,{{resourceId}}'),
 
             BelongsToMany::make('Posts')
         ];
