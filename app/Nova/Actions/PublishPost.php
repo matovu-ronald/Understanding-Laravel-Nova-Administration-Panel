@@ -3,11 +3,12 @@
 namespace App\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Collection;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Actions\Action;
+use Illuminate\Support\Collection;
 use Laravel\Nova\Fields\ActionFields;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PublishPost extends Action implements ShouldQueue
 {
@@ -29,7 +30,7 @@ class PublishPost extends Action implements ShouldQueue
             ]);
         }
         sleep(5);
-        return Action::message("Post was publshed successfully.");
+        return Action::message($fields->message);
     }
 
     /**
@@ -39,6 +40,8 @@ class PublishPost extends Action implements ShouldQueue
      */
     public function fields()
     {
-        return [];
+        return [
+            Text::make('Message')
+        ];
     }
 }
