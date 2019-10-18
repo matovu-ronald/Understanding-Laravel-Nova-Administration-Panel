@@ -18,7 +18,8 @@
         "teamtnt/laravel-scout-tntsearch-driver": "^7.2",
         "hackshadetechs/viewcache": "*",
         "hackshadetechs/NovaClock": "*",
-        "hackshadetechs/string-limit": "*"
+        "hackshadetechs/string-limit": "*",
+        "hackshadetechs/matovu-ronald-theme": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -89,6 +90,14 @@
         {
             "type": "path",
             "url": "./nova-components/StringLimit"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaTheme"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/MatovuRonaldTheme"
         }
     ]
 }

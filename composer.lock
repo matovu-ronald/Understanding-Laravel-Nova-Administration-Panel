@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "300c630990e50046047fe4bdc634a980",
+    "content-hash": "b112336bfd4cf526152b7c4e03615c5c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -766,6 +766,39 @@
                 "MIT"
             ],
             "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
+        {
+            "name": "hackshadetechs/matovu-ronald-theme",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/MatovuRonaldTheme",
+                "reference": "0d6ddd4e80f25d569de266695c33cc53bf555ce4"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hackshadetechs\\MatovuRonaldTheme\\ThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hackshadetechs\\MatovuRonaldTheme\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova theme.",
             "keywords": [
                 "laravel",
                 "nova"
