@@ -17,7 +17,8 @@ class PostCount extends Value
     public function calculate(Request $request)
     {
         // return $this->count($request, Post::class);
-        return $this->result(500)->previous(200);
+        return $this->result(500)->previous(200)
+            ->suffix('Posts');
     }
 
     /**
