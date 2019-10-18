@@ -60,9 +60,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            (new PostCount)->width('1/2'),
-            (new PostsPerCategory)->width('1/2'),
-            (new PostsPerMonth)->width('full'),
 
         ];
     }

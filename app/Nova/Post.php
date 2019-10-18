@@ -120,7 +120,11 @@ class Post extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new PostCount)->width('1/2'),
+            (new PostsPerCategory)->width('1/2'),
+            (new PostsPerMonth)->width('full'),
+        ];
     }
 
     /**
