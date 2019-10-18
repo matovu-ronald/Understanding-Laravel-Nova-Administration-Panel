@@ -16,6 +16,7 @@ use App\Nova\Filters\PostPublished;
 use App\Nova\Metrics\PostsPerMonth;
 use App\Nova\Filters\PostCategories;
 use App\Nova\Metrics\PostsPerCategory;
+use Hackshadetechs\StringLimit\StringLimit;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -82,11 +83,12 @@ class Post extends Resource
             BelongsTo::make('Category')
                 ->sortable(),
 
-            Text::make('Title')
+            StringLimit::make('Title')
                 ->sortable()
                 ->rules('required', 'max:255')
                 ->creationRules('unique:posts,title')
-                ->updateRules('unique:posts,title,{{resourceId}}'),
+                ->updateRules('unique:posts,title,{{resourceId}}')
+                ->maxLength(10),
 
             Trix::make('Body')
                 ->nullable(),
