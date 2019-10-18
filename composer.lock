@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1f96b171d2a47b3ff943dced94a392d",
+    "content-hash": "5f8713ffd2b4013a9d1d92c7269b9892",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -737,6 +737,39 @@
                 "trusted proxy"
             ],
             "time": "2019-09-03T16:45:42+00:00"
+        },
+        {
+            "name": "hackshadetechs/NovaClock",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/NovaClock",
+                "reference": "9ee4718d6c3b926a3c2a57efe991a4bcf72fee92"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hackshadetechs\\NovaClock\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hackshadetechs\\NovaClock\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
         },
         {
             "name": "hackshadetechs/viewcache",

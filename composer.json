@@ -16,7 +16,8 @@
         "laravel/scout": "^7.2",
         "laravel/tinker": "^1.0",
         "teamtnt/laravel-scout-tntsearch-driver": "^7.2",
-        "hackshadetechs/viewcache": "*"
+        "hackshadetechs/viewcache": "*",
+        "hackshadetechs/NovaClock": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -79,6 +80,10 @@
         {
             "type": "path",
             "url": "./nova-components/Viewcache"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaClock"
         }
     ]
 }

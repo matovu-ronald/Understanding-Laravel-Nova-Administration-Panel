@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Nova\Metrics\PostCount;
 use App\Nova\Metrics\PostsPerCategory;
 use App\Nova\Metrics\PostsPerMonth;
+use Hackshadetechs\NovaClock\NovaClock;
 use Hackshadetechs\Viewcache\Viewcache;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
@@ -60,7 +61,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-
+            (new NovaClock)
+                ->withSeconds()
+                ->blink()
+                ->twelveHour()
         ];
     }
 
