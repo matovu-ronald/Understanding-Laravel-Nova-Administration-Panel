@@ -2,18 +2,21 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\PublishPost;
-use App\Nova\Filters\PostCategories;
-use App\Nova\Filters\PostPublished;
-use App\Nova\Lenses\MostTags;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
+use App\Nova\Lenses\MostTags;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use App\Nova\Metrics\PostCount;
+use Laravel\Nova\Fields\Boolean;
+use App\Nova\Actions\PublishPost;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Filters\PostPublished;
+use App\Nova\Metrics\PostsPerMonth;
+use App\Nova\Filters\PostCategories;
+use App\Nova\Metrics\PostsPerCategory;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
